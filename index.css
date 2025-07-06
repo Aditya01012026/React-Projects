@@ -1,0 +1,153 @@
+:root {
+  --bg-light: #f5f8fb;
+  --bg-dark: #1e1e1e;
+  --text-light: #333;
+  --text-dark: #f9f9f9;
+  --card-light: #ffffffcc;
+  --card-dark: #2a2a2acc;
+  --accent: #4e8cff;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  min-height: 100vh;
+}
+
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* Layout */
+.dashboard {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+.widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Widget Box */
+.widget {
+  background-color: var(--card-light);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  transition: background-color var(--transition-speed), color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+body.dark .widget {
+  background-color: var(--card-dark);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.06);
+}
+
+.widget h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+/* Buttons */
+button {
+  background-color: var(--accent);
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  margin: 0.3rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color var(--transition-speed);
+}
+
+button:hover {
+  background-color: #2f6dd6;
+}
+
+/* Inputs */
+input {
+  padding: 8px 10px;
+  width: 80%;
+  max-width: 300px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 0.5rem 0;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--accent);
+}
+
+/* To-Do List */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+li {
+  background-color: #eaeaea;
+  padding: 10px 14px;
+  margin: 0.4rem 0;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.dark li {
+  background-color: #333;
+}
+
+/* Timer Display */
+.widget h3 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  color: var(--accent);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .theme-toggle {
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .widget {
+    padding: 1rem;
+  }
+}
